@@ -25,12 +25,13 @@ console.debug({ width, height });
 
 main();
 async function main() {
+    await wait(5000);
     while (true) {
-        await wait(rand_within(1000, 2000));
+        await wait(rand_within(500, 2500));
         const x = rand_within(width + SIDE_MARGIN, (width * 2) - SIDE_MARGIN);
         const y = rand_within(TOP_MARGIN, height - BOTTOM_MARGIN);
         console.debug({ x, y });
-        robot.moveMouse(x, y);
+        robot.moveMouseSmooth(x, y);
         robot.mouseClick();
     }
 }
