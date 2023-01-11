@@ -16,10 +16,9 @@ function rand_within(min, max) {
 const robot = require("robotjs");
 
 var { width, height } = robot.getScreenSize();
-width = width / 3;
 const TOP_MARGIN = 200;
 const SIDE_MARGIN = 500;
-const BOTTOM_MARGIN = 200;
+const BOTTOM_MARGIN = 60;
 
 console.debug({ width, height });
 
@@ -31,7 +30,10 @@ async function main() {
         const x = rand_within(width + SIDE_MARGIN, (width * 2) - SIDE_MARGIN);
         const y = rand_within(TOP_MARGIN, height - BOTTOM_MARGIN);
         console.debug({ x, y });
+        robot.mouseClick();
+        robot.mouseToggle();
         robot.moveMouseSmooth(x, y);
+        robot.mouseToggle();
         robot.mouseClick();
     }
 }
