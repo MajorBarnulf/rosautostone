@@ -27,7 +27,7 @@ async function main() {
     await wait(5000);
     while (true) {
         await wait(rand_within(500, 2500));
-        const x = rand_within(width + SIDE_MARGIN, (width * 2) - SIDE_MARGIN);
+        const x = rand_within(SIDE_MARGIN, width - SIDE_MARGIN);
         const y = rand_within(TOP_MARGIN, height - BOTTOM_MARGIN);
         console.debug({ x, y });
         robot.mouseClick();
